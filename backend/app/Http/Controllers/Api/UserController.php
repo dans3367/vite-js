@@ -3,18 +3,25 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateUserRequest;
+use App\Http\Requests\ListUserRequest;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
+
+    public function authorize($ability, $arguments = [])
+    {
+        return true;
+    }
     /**
      * Display a listing of the users.
      *
      * @return JsonResponse
      */
-    public function index()
+    public function index(ListUserRequest $request)
     {
         $users = User::all();
         return response()->json($users, 200);
@@ -43,15 +50,10 @@ class UserController extends Controller
      * @param \Illuminate\Http\Request $request
      * @return JsonResponse
      */
-    public function store(Request $request)
+    public function store(CreateUserRequest $request)
     {
-        $validatedData = $request->validate([
-            'name' => 'required|string',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|string',
-        ]);
 
-        $user = User::create($validatedData);
+        $user = User::create($request->validated());
 
         return response()->json($user, 201);
     }
