@@ -1,0 +1,185 @@
+{
+	"info": {
+		"_postman_id": "4af8b3fa-7f6b-4630-904d-fab1ff7cf258",
+		"name": "API COLLECTION",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "4098536",
+		"_collection_link": "https://tripegate-tech-team.postman.co/workspace/Tripegate~0b5d9349-6414-47ca-be45-267cae667c90/collection/4098536-4af8b3fa-7f6b-4630-904d-fab1ff7cf258?action=share&source=collection_link&creator=4098536"
+	},
+	"item": [
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "ListUsers",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"shojibmahabub630@gmail.com\",\n  \"password\": \"password630\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/users"
+					},
+					"response": []
+				},
+				{
+					"name": "GetUser",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9|0TZpcXsbSMGowScGByxFWMutYspYj91hujBrM3yif58cd934"
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"shojibmahabub630@gmail.com\",\n  \"password\": \"password630\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/users/8"
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/users/3"
+					},
+					"response": []
+				},
+				{
+					"name": "UpdateUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"email\": \"mahabubelahi@gmail.com\",\n  \"password\": \"password630\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/users/1"
+					},
+					"response": []
+				},
+				{
+					"name": "CreateUser",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "9|0TZpcXsbSMGowScGByxFWMutYspYj91hujBrM3yif58cd934"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\" : \"Mahabub Elahi Shojib\",\n    \"email\": \"gms@gmail.com\",\n    \"password\": \"password630\",\n    \"password_confirmation\": \"password630\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/users"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "LoginUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\":\"shojibmahbub@gmail.com\",\n    \"password\":\"password630\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://127.0.0.1:8000/api/login"
+					},
+					"response": []
+				},
+				{
+					"name": "RegisterUser",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"accept": true
+						}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "XSRF-TOKEN",
+								"value": "eyJpdiI6IlNDNU9kUWE3UGhib1l1bkhsRmYyZlE9PSIsInZhbHVlIjoiVUtxSWszZ2ppNlpObjBhWVNURmRRLzh4Rklqb2Q1OXVrWVdrOWFZdXRpRmlMYUpHSVU0SUZYTUdEMUlWQzJwb09YQ1pBdHBkdXNvb3U0a3k5d0k0OGE2YW84Y3BXUjh3MUFxS25SRkQwUzVaa3ZyMkplUXBlS2h6Sk1rdFVtTVoiLCJtYWMiOiI3MjRkMzZkZTM3NDIxYWU0ZDUyNDVjNDI4YzkzZjFlNjMwMDZmNjU1ZmYxM2RiMTVhMzUzNjU1M2YwZGRjZmUxIiwidGFnIjoiIn0%3D",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Mahabub Elahi\",\n    \"email\":\"shojibmahbub@gmail.com\",\n    \"password\":\"password630\",\n    \"password_confirmation\":\"password630\"\n}"
+						},
+						"url": "http://127.0.0.1:8000/api/register"
+					},
+					"response": []
+				},
+				{
+					"name": "SanctumToken",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "http://127.0.0.1:8000/sanctum/csrf-cookie"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
